@@ -6,7 +6,7 @@ from PIL import Image #Pillow
 X_PIXEL = 128
 Y_PIXEL = 250
 
-f = Image.open('demo.png')
+f = Image.open('images/demo.png')
 f = f.convert('RGB') # conversion to RGB
 data = f.load()
 e = Epaper(X_PIXEL,Y_PIXEL)
