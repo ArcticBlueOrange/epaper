@@ -1,5 +1,5 @@
 import time
-from Epaper import *
+from src.Epaper import *
 from PIL import Image #Pillow
 
 # Demo Configuration

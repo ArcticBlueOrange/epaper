@@ -1,5 +1,5 @@
-
 images/*
 venv/*
 logs/*
 *.ipynb
+*.py[cmo]
