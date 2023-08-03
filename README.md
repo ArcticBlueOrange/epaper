@@ -1,4 +1,7 @@
 # epaper
+
+This is a fork on (geekpi's Epaper library)[https://github.com/geeekpi/epaper]. It's basically the same as the original one, but provides a set of functions to paste images and text to the epaper display.
+
 This is a library driven by 52Pi E-ink, which can drive 2.13 inch electronic paper and other sizes of electronic paper.
 * Currently, only 2.13 inch screen support is provided.
 - [] 2.13 Inch E-Ink
