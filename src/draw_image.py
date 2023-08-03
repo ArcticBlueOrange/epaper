@@ -62,7 +62,7 @@ def add_text_to_image(
 
         # Paste the vertical text image onto the original image
         # recalculate x, y
-        ny = img_y - text_width + y
+        ny = img_y - text_width - y
         image.paste(vertical_text_image, (x, ny))
 
     else:
