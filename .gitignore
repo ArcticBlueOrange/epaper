@@ -1,5 +1,8 @@
-# images/*
 venv/*
-logs/*
+logs/*.log
 *.ipynb
 *.py[cmo]
+__pycache__/*
+spidev.py
+RPi/GPIO.py
+images/output*.png

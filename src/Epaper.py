@@ -5,7 +5,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
 class Epaper:
     def __init__(self,
                  x=128,
@@ -36,9 +35,11 @@ class Epaper:
         self.wait()
         self.command(0x12)
         self.wait()
+        logger.debug("Epaper object created")
 
     def wait(self):
         while True:
+            logger.debug("Waiting for free pin")
             if GPIO.input(self.BUSY_PIN) == GPIO.LOW:
                 break
             else:
@@ -57,11 +58,12 @@ class Epaper:
         self.wait()
         self.command(0x10)
         self.data(0x01)
-        #time.sleep(0.1)
+        time.sleep(0.1)
 
     def flash_red(self,
                   on=True,
                   buf=None):
+        logger.debug("Flashing RED")
         self.wait()
         self.command(0x26)
         if buf is None:
@@ -78,6 +80,7 @@ class Epaper:
     def flash_black(self,
                     on=True,
                     buf=None):
+        logger.debug("Flashing BLACK")
         self.wait()
         self.command(0x24)
         if buf is None:
