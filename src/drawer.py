@@ -16,7 +16,9 @@ __all__ = [
 IMG_X=128
 IMG_Y=250
 
-FONT_NAME = r"C:\WINDOWS\fonts\arial.ttf" if 'windows' in platform().lower() else r"/usr/share/fonts/truetype/freefont/arial.ttf"
+FONT_NAME = r"C:\WINDOWS\fonts\arial.ttf" if 'windows' in platform().lower() else r"/usr/share/fonts/truetype/msttcorefonts/arial.ttf"
+
+print(FONT_NAME)
 
 class COLOR:
     RED = (237,28,36)
