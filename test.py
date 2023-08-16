@@ -19,7 +19,7 @@ output_image_path = IMG_PATH / "output_image.png"
 font_size = 20
 font_height = 20
 
-img0 = base_image(COLOR.RED)
+img0 = base_image(COLOR.WHITE)
 logger.debug(type(img0))
 img1 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
@@ -46,8 +46,8 @@ img3 = add_text_to_image(
     text_position=(2 + font_height * 2, 2),
     # font_path='bahnschrift.ttf',
     font_size=font_size,
-    font_fg=COLOR.WHITE,
-    font_bg=COLOR.RED,
+    font_fg=COLOR.BLACK,
+    font_bg=COLOR.WHITE,
     input_image=img1,
     output_image_path=output_image_path,
 )
