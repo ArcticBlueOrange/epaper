@@ -76,9 +76,9 @@ for y in range(250):
 
 logger.debug("Pasting image to screen")
 
-# In[7]:
+# In[4]:
 e.flash_red(buf=rBuf)
 # In[5]:
-# e.flash_black(buf=bBuf)
+e.flash_black(buf=bBuf)
 # In[6]:
-# e.update()
+e.update()

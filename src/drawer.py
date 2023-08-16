@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 import pathlib
 import random
 from pathlib import Path
+from platform import platform
 
 __all__ = [
     'COLOR',
@@ -15,7 +16,7 @@ __all__ = [
 IMG_X=128
 IMG_Y=250
 
-FONT = 'arial.ttf'
+FONT_NAME = r"C:\WINDOWS\fonts\arial.ttf" if 'windows' in platform().lower() else r"/usr/share/fonts/truetype/freefont/arial.ttf"
 
 class COLOR:
     RED = (237,28,36)
@@ -27,7 +28,7 @@ logger = logging.getLogger(__name__)
 def add_text_to_image(
         text,
         text_position=(10, 10),
-        font_path=FONT,
+        font_path=FONT_NAME,
         font_size=50,
         font_fg=COLOR.BLACK,
         font_bg=COLOR.WHITE,
