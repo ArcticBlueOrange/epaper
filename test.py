@@ -1,21 +1,23 @@
-# In[1]:
+# In[11]:
 import PIL
 from PIL import Image
 from PIL import Image, ImageDraw, ImageFont
 import pathlib
 import random
 from pathlib import Path
+from platform import platform
 IMG_PATH = Path('images')
 
 from src import *
 logger = get_logger(
     "epaper", 'debug',
     console_format="%(asctime)s | %(message)s" )
-# In[2]:
+# In[12]:
 # Example usage:
 # input_image_path = IMG_PATH / 'red.png'
 output_image_path = IMG_PATH / "output_image.png"
-font_size = 10
+font_size = 20
+font_height = 20
 
 img0 = base_image(COLOR.RED)
 logger.debug(type(img0))
@@ -31,7 +33,7 @@ img1 = add_text_to_image(
 logger.debug(type(img1))
 img2 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
-    text_position=(10, 2),
+    text_position=(2 + font_height, 2),
     # font_path='bahnschrift.ttf',
     font_size=font_size,
     font_fg=COLOR.BLACK,
@@ -41,7 +43,7 @@ img2 = add_text_to_image(
 )
 img3 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
-    text_position=(16, 2),
+    text_position=(2 + font_height * 2, 2),
     # font_path='bahnschrift.ttf',
     font_size=font_size,
     font_fg=COLOR.WHITE,
@@ -50,7 +52,7 @@ img3 = add_text_to_image(
     output_image_path=output_image_path,
 )
 img3
-# In[3]:
+# In[13]:
 data = img2.load()
 X_PIXEL = 128
 Y_PIXEL = 250
@@ -76,9 +78,11 @@ for y in range(250):
 
 logger.debug("Pasting image to screen")
 
-# In[4]:
+# In[14]:
+if 'windows' in platform().lower():
+    1/0
 e.flash_red(buf=rBuf)
-# In[5]:
+# In[ ]:
 e.flash_black(buf=bBuf)
-# In[6]:
+# In[ ]:
 e.update()
