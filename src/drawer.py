@@ -15,6 +15,8 @@ __all__ = [
 IMG_X=128
 IMG_Y=250
 
+FONT = 'arial.ttf'
+
 class COLOR:
     RED = (237,28,36)
     BLACK = (0,0,0)
@@ -25,7 +27,7 @@ logger = logging.getLogger(__name__)
 def add_text_to_image(
         text,
         text_position=(10, 10),
-        font_path=None,
+        font_path=FONT,
         font_size=50,
         font_fg=COLOR.BLACK,
         font_bg=COLOR.WHITE,

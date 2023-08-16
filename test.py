@@ -9,48 +9,48 @@ IMG_PATH = Path('images')
 
 from src import *
 logger = get_logger(
-    "epaper", 'info',
+    "epaper", 'debug',
     console_format="%(asctime)s | %(message)s" )
-# In[10]:
+# In[2]:
 # Example usage:
 # input_image_path = IMG_PATH / 'red.png'
 output_image_path = IMG_PATH / "output_image.png"
-font_size = 25
+font_size = 10
 
-img0 = base_image(COLOR.WHITE)
+img0 = base_image(COLOR.RED)
 logger.debug(type(img0))
 img1 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
-    text_position=(0,2),
-    font_path='NotoSansMono-Regular.ttf',
+    text_position=(2,2),
+    # font_path='bahnschrift.ttf',
     font_size=font_size,
     font_fg=COLOR.RED,
     font_bg=COLOR.BLACK,
-    output_image_path=None,
+    
     input_image=img0)
 logger.debug(type(img1))
 img2 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
-    text_position=(30, 2),
-    font_path='NotoSansMono-Regular.ttf',
+    text_position=(10, 2),
+    # font_path='bahnschrift.ttf',
     font_size=font_size,
     font_fg=COLOR.BLACK,
     font_bg=COLOR.RED,
     input_image=img1,
-    output_image_path=None,
+    output_image_path=output_image_path,
 )
 img3 = add_text_to_image(
     text=f"test {random.randint(0,1000)}",
-    text_position=(30, 2),
-    font_path='NotoSansMono-Regular.ttf',
+    text_position=(16, 2),
+    # font_path='bahnschrift.ttf',
     font_size=font_size,
     font_fg=COLOR.WHITE,
     font_bg=COLOR.RED,
     input_image=img1,
-    output_image_path=None,
+    output_image_path=output_image_path,
 )
 img3
-# In[6]:
+# In[3]:
 data = img2.load()
 X_PIXEL = 128
 Y_PIXEL = 250
@@ -76,8 +76,9 @@ for y in range(250):
 
 logger.debug("Pasting image to screen")
 
-e.flash_black(on=False)
-e.flash_red(on=False)
+# In[7]:
 e.flash_red(buf=rBuf)
-e.flash_black(buf=bBuf)
-e.update()
+# In[5]:
+# e.flash_black(buf=bBuf)
+# In[6]:
+# e.update()
